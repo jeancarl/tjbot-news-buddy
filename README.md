@@ -9,7 +9,7 @@ In this section, we'll program the TJBot to speak.
 1. Copy the following code into the code editor
 
 	```
-	var tj = new TJBot(["speaker"], 
+	var tj = new TJBot(["speaker"],
 	  {
 	    robot: {
 	      gender: "female"
@@ -17,7 +17,7 @@ In this section, we'll program the TJBot to speak.
 	    speak: {
 	      language: "en-US"
 	    }
-	  }, 
+	  },
 	  {
 	    text_to_speech: {
 	      username: "--username--",
@@ -27,7 +27,7 @@ In this section, we'll program the TJBot to speak.
 	);
 	```
 
-2. [Create a Watson Text to Speech service](https://ibm.biz/catalog-text-to-speech) in IBM Bluemix. 
+2. [Create a Watson Text to Speech service](https://ibm.biz/catalog-text-to-speech) in IBM Cloud.
 
 3. Replace the values of `--username--` and `--password--` with the service credentials for the Watson Text to Speech service.
 
@@ -36,7 +36,7 @@ In this section, we'll program the TJBot to speak.
 	```
 	tj.speak("hello world");
 	```
-	
+
 5. Click on the play icon to run the code. TJBot speaks the phrase *hello world* in English.
 
 ## Discovery News
@@ -47,20 +47,20 @@ In this section, we will use the Watson Discovery News service to search for hea
 
 	```
 	var DiscoveryV1 = require("watson-developer-cloud/discovery/v1");
-	
+
 	var discovery = new DiscoveryV1({
 	  username: "--username--",
 	  password: "--password--",
 	  version_date: "2017-09-01"
 	});
 	```
-	
-2. [Create a Watson Discovery service](https://ibm.biz/catalog-discovery) in IBM Bluemix.
+
+2. [Create a Watson Discovery service](https://ibm.biz/catalog-discovery) in IBM Cloud.
 
 3. Replace the values of `--username--` and `--password--` with the service credentials for the Watson Discovery service.
 
 4. Add the following function below the instantiation of the TJBot object. When this function is called, it will get a headline from the Watson Discovery service and speak it out.
-	
+
 	```
 	function speakTeamHeadlines(team) {
 	  discovery.query({
@@ -73,7 +73,7 @@ In this section, we will use the Watson Discovery News service to search for hea
      });
 	}
 	```
-	
+
 5. Add a call to the function, with your favorite sports team as the argument.
 
 	```
@@ -82,26 +82,26 @@ In this section, we will use the Watson Discovery News service to search for hea
 	});
 	```
 
-## Speech to Text 
+## Speech to Text
 
 In this section, we'll program TJBot to use the Speech to Text service to recognize voices and use what is heard to search for news.
 
 1. Instruct TJBot that it has a microphone that it can use. Add `microphone` to the list of hardware.
 
 	```
-	var tj = new TJBot(["speaker","microphone"], 
+	var tj = new TJBot(["speaker","microphone"],
 	  {
 	    robot: {
 	      gender: "female"
 	    },
 	```
 
-2. [Create a Watson Speech to Text service](https://ibm.biz/catalog-speech-to-text) in IBM Bluemix.
+2. [Create a Watson Speech to Text service](https://ibm.biz/catalog-speech-to-text) in IBM Cloud.
 
 3. Under the credentials section in the code, add another property with the key speech_to_text and the object containing the username and password for the Speech to Text service.
 
 	```
-	var tj = new TJBot(["speaker"], 
+	var tj = new TJBot(["speaker"],
 	  {
 	    robot: {
 	      gender: "female"
@@ -109,7 +109,7 @@ In this section, we'll program TJBot to use the Speech to Text service to recogn
 	    speak: {
 	      language: "en-US"
 	    }
-	  }, 
+	  },
 	  {
 	    text_to_speech: {
 	      username: "--username--",
@@ -157,6 +157,4 @@ In this section, we'll program TJBot to use the Speech to Text service to recogn
 		tj.speak("Hi. I'm T. J. Bot and I can search headlines for your favorite sports team. What is your favorite team?").then(() => {
 			tj.listen(processText);
 		});
-	```	
-
-
+	```
